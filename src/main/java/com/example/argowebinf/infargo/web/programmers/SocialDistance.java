@@ -67,11 +67,11 @@ public class SocialDistance {
                     int ny = temp.y + dy[j];
                     if (nx < 0 || ny < 0 || nx > 4 || ny > 4 || board[nx][ny].equals("X") || (nx == temp.originX && ny == temp.originY)) continue; //원래 자리랑 겹치면 안되잖아. check visit 역할
                     int distance = Math.abs(nx-temp.originX) + Math.abs(ny - temp.originY); // 현재의 x 와 원래 x값(절댓값) + 현재의 y 와 원래의 y값(절대값) => 원래 거리와 3이 되면 P가 있던 말던 통과함
-                    if (board[nx][ny].equals("P") && distance <= 2) {
+                    if (board[nx][ny].equals("P") && distance <= 2) { //P를 만났는데 2이하? 넌 뒈졌다.
                             answer[i] = 0;
                             q.clear();
-                    } else if (board[nx][ny].equals("O") && distance < 2) {
-                        q.add(new Dis(temp.originX, temp.originY, nx, ny));
+                    } else if (board[nx][ny].equals("O") && distance < 2) { //O인데 2도 안됬다? 아직 무궁무진한 미래를 가진 Dis객체
+                        q.add(new Dis(temp.originX, temp.originY, nx, ny)); //강해져서 돌아와라
                     }
                 }
             }
