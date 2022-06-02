@@ -55,8 +55,7 @@ public class MaxCalAbs {
             if(!check[i]){
                 check[i] = true;
                 p[count] = prior[i];
-                dfs(count+1, p
-                );
+                dfs(count+1, p);
                 check[i] = false;
             }
         }
